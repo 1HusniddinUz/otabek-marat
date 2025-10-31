@@ -1,0 +1,56 @@
+/* ===========================
+   HERO SECTION GLOBAL STYLE
+=========================== */
+#HeroSection {
+    width: 100%;
+    height: 100vh;
+    background-image: url("./images/hero_bg.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed; /* Desktoplarda paralax effekti beradi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🌐 Qo‘shimcha qatlam (gradient yoki overlay uchun, istasangiz olib tashlasa ham bo‘ladi) */
+#HeroSection::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); /* fonni yumshatish uchun */
+    z-index: 1;
+}
+
+/* ===========================
+   📱 MOBILE (max-width: 480px)
+=========================== */
+@media (max-width: 480px) {
+    #HeroSection {
+        margin-top: 20vh;
+        height: 30vh;
+        background-image: url("./images/hero_bg.png");
+        background-size: contain; /* mobil uchun to‘liq sig‘dirish */
+        background-position: top center;
+        background-attachment: scroll;
+    }
+
+    #HeroSection::before {
+        background: rgba(0, 0, 0, 0.15); /* mobilda biroz yengilroq overlay */
+    }
+}
+
+/* ===========================
+   💻 TABLET (481px – 1024px)
+=========================== */
+@media (min-width: 481px) and (max-width: 1024px) {
+    #HeroSection {
+        height: 90vh;
+        background-size: cover; /* planshetda balansni ushlab turish */
+        background-position: center top;
+        background-attachment: scroll;
+    }
+}

@@ -1,0 +1,307 @@
+/* -------------------
+   GLOBAL SETTINGS
+------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mahsulotlar bo‘limi */
+#MainProducts {
+    margin: 0 auto;
+    max-width: 1920px;
+    padding: 40px 0;
+    background-color: #fafafa;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Container */
+#MainProducts .container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Sarlavha va Savatcha */
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.products-header h1 {
+    font-size: 1.8rem;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Savatcha */
+.cart-info {
+    position: relative;
+    cursor: pointer;
+    color: #333;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #bea087;
+    color: white;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+    border-radius: 50%;
+}
+
+/* -------------------
+   PRODUCT CARDS
+------------------- */
+#MainProducts-card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Har bir mahsulot qutisi */
+#MainProducts-sBox {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-width: 200px;
+    height: 420px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+#MainProducts-sBox:hover {
+    transform: scale(1.03);
+}
+
+/* Chegirma badge */
+.discount-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #e63946;
+    color: white;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Rasm */
+#MainProducts-sBox img {
+    width: 100%;
+    height: 65%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Mahsulot nomi */
+#MainProducts-sBox h3 {
+    font-size: 1.1rem;
+    margin: 8px 12px 0;
+    color: #222;
+    flex-grow: 1;
+}
+
+/* Narx */
+#Product-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 12px;
+}
+
+#Product-price h4 {
+    color: #333;
+    font-weight: 600;
+}
+
+#Product-price strike {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* -------------------
+   ADD TO CART BUTTON
+------------------- */
+.add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 90%;
+    margin: 10px auto 15px;
+    padding: 10px 0;
+    background-color: #bea087;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #a87a4f;
+    transform: translateY(-2px);
+}
+
+/* -------------------
+   CONTROL BUTTONS
+------------------- */
+#MainProducts-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#MainProducts_btn {
+    width: 250px;
+    height: 55px;
+    background-color: #bea087;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 0px 8px rgba(190, 160, 135, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#MainProducts_btn:hover {
+    background-color: transparent;
+    color: #bea087;
+    border: 2px solid #bea087;
+    transform: scale(0.97);
+}
+
+/* ========== 📱 MOBILE (max-width: 480px) ========== */
+@media (max-width: 480px) {
+    #MainProducts {
+        padding: 25px 0;
+    }
+
+    #MainProducts .container {
+        width: 94%;
+        margin: 0 auto;
+    }
+
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .products-header h1 {
+        font-size: 1.2rem;
+    }
+
+    /* --- GRID LAYOUT --- */
+    #MainProducts-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    #MainProducts-sBox {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    #MainProducts-sBox img {
+        height: 180px;
+    }
+
+    #MainProducts-sBox h3 {
+        font-size: 0.9rem;
+        text-align: center;
+        margin: 6px 0;
+        padding: 0 6px;
+    }
+
+    #Product-price {
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+    }
+
+    #Product-price h4 {
+        font-size: 0.85rem;
+    }
+
+    #Product-price strike {
+        font-size: 0.75rem;
+    }
+
+    .add-to-cart-btn {
+        font-size: 0.8rem;
+        margin: 8px auto 12px;
+        padding: 8px 0;
+    }
+
+    #MainProducts_btn {
+        width: 180px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+}
+
+/* ========== 💻 TABLET (481px – 1024px) ========== */
+@media (min-width: 481px) and (max-width: 1024px) {
+    #MainProducts-card {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        justify-items: center;
+    }
+
+    #MainProducts-sBox {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    #MainProducts-sBox img {
+        height: 220px;
+    }
+
+    #MainProducts-sBox h3 {
+        font-size: 1rem;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    #Product-price {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .add-to-cart-btn {
+        width: 85%;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    #MainProducts_btn {
+        width: 200px;
+        height: 45px;
+        font-size: 0.9rem;
+    }
+}
