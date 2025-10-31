@@ -12,6 +12,7 @@ import img7 from "../../assets/images/kx1.jpg";
 import img8 from "../../assets/images/kx2.jpg";
 import img9 from "../../assets/images/kx3.jpg";
 import img10 from "../../assets/images/yt1.jpg";
+import {useTranslation} from "react-i18next";
 
 const Products = [
     {
@@ -89,7 +90,7 @@ const Products = [
 const MainProducts = () => {
     const [visibleCards, setVisibleCards] = useState(8);
     const [cart, setCart] = useState([]); // Savatcha state
-
+    const { t } = useTranslation();
     // Savatchaga qo'shish
     const handleAddToCart = (product) => {
         setCart((prev) => [...prev, product]);
@@ -111,7 +112,7 @@ const MainProducts = () => {
             <div className="container">
                 {/* Sarlavha va savatcha */}
                 <div className="products-header">
-                    <h1>Bizning Mahsulotlarimiz</h1>
+                    <h1>{t(`productH3`)}</h1>
                     <div className="cart-info">
                         <ShoppingCart size={28} />
                         <span className="cart-count">{cart.length}</span>
@@ -133,7 +134,7 @@ const MainProducts = () => {
                                 className="add-to-cart-btn"
                                 onClick={() => handleAddToCart(item)}
                             >
-                                <ShoppingCart size={18} /> Savatchaga
+                                <ShoppingCart size={18} /> {t(`toCart`)}
                             </button>
                         </div>
                     ))}
@@ -143,7 +144,7 @@ const MainProducts = () => {
                 <div id="MainProducts-controls">
                     {visibleCards < Products.length && (
                         <button onClick={handleShowMore} id="MainProducts_btn">
-                            Ko'proq ko'rsatish
+                            {t(`productMore`)}
                         </button>
                     )}
                     {visibleCards > 8 && (
@@ -152,7 +153,7 @@ const MainProducts = () => {
                             onClick={handleAllClose}
                             style={{ marginLeft: "20px" }}
                         >
-                            Barchasini yopish
+                            {t(`productClose`)}
                         </button>
                     )}
                 </div>

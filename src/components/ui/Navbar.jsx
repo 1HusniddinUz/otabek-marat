@@ -3,11 +3,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import "../../assets/Navbar.css";
 import logo from "../../assets/images/logo.png";
+import {useTranslation} from "react-i18next";
+import MainProducts from "../sections/MainProducts.jsx";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const [marketOpen, setMarketOpen] = useState(false);
-
+    const { t , i18n } = useTranslation()
     useEffect(() => {
         AOS.init({ duration: 800, once: true });
     }, []);
@@ -51,11 +53,12 @@ const Navbar = () => {
                             </label>
                             <select
                                 id="select"
+                                onChange={(e) => i18n.changeLanguage(e.target.value)}
                                 defaultValue="uz"
                             >
                                 <option value="uz">🇺🇿 O'zbek</option>
-                                <option value="en">🇬🇧 English</option>
                                 <option value="ru">🇷🇺 Русский</option>
+                                <option value="en">🇬🇧 English</option>
                             </select>
                         </div>
 
@@ -76,8 +79,8 @@ const Navbar = () => {
                     {/* DESKTOP NAV */}
                     <div className="NavBottom" aria-hidden={open ? "true" : "false"}>
                         <ul>
-                            <a href="#HeroSection"><li>Home</li></a>
-                            <a href="#Products"><li>Products</li></a>
+                            <a href="#HeroSection"><li>{t(`gallery`)}</li></a>
+                            <a href="#MainProducts"><li>{t(`arts`)}</li></a>
 
                             {/* 🛍️ Marketplaces Dropdown */}
                             <li
@@ -95,7 +98,7 @@ const Navbar = () => {
                                     </ul>
                                 )}
                             </li>
-                            <a href="#ContactForm"><li>Contacts</li></a>
+                            <a href="#Contacts"><li>{t(`contact`)}</li></a>
                         </ul>
                     </div>
                 </div>
@@ -122,21 +125,26 @@ const Navbar = () => {
                     </div>
 
                     <ul className="nav__panel__links">
-                        <a href="#HeroSection"><li>Home</li></a>
-                        <a href="#Products"><li>Products</li></a>
+                        <a href="#HeroSection"><li>{t(`gallery`)}</li></a>
+                        <a href="#MainProducts"><li>{t(`arts`)}</li></a>
 
-                        {/* Mobil Marketplaces */}
-                        <li className="dropdown-mobile">
-                            <span>Marketplaces</span>
-                            <ul>
-                                <li><a href="https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=%D0%A1%D1%83%D0%BD%D0%B4%D1%83%D0%BA&product_id=3049571325" target="_blank">OZON</a></li>
-                                <li><a href="https://uzum.uz/uz/product/sandiq-nafis-dizaynli-2073084" target="_blank">Uzum Market</a></li>
-                                <li><a href="https://market.yandex.uz/card/sunduk--stilnoye-i-funktsionalnoye-resheniye-dlya-khraneniya-sunduk-izgotovlen-iz-prochnykh-dolgovechnykh-materialov/4737603288?do-waremd5=cZWmL1M2iULRffb3bCf6nw&businessId=216456918&ogV=-6" target="_blank">Yandex Market</a></li>
-                                <li><a href="https://www.wildberries.ru/catalog/591193539/detail.aspx?targetUrl=GP" target="_blank">Wildberries</a></li>
-                            </ul>
+                        {/* 🛍️ Marketplaces Dropdown */}
+                        <li
+                            className="dropdown"
+                            onMouseEnter={() => setMarketOpen(true)}
+                            onMouseLeave={() => setMarketOpen(false)}
+                        >
+                            <span className="dropdown-title">Marketplaces</span>
+                            {marketOpen && (
+                                <ul className="dropdown-menu">
+                                    <li><a href="https://www.ozon.ru/search/?deny_category_prediction=true&from_global=true&text=%D0%A1%D1%83%D0%BD%D0%B4%D1%83%D0%BA&product_id=3049571325" target="_blank">OZON</a></li>
+                                    <li><a href="https://uzum.uz/uz/product/sandiq-nafis-dizaynli-2073084" target="_blank">Uzum Market</a></li>
+                                    <li><a href="https://market.yandex.uz/card/sunduk--stilnoye-i-funktsionalnoye-resheniye-dlya-khraneniya-sunduk-izgotovlen-iz-prochnykh-dolgovechnykh-materialov/4737603288?do-waremd5=cZWmL1M2iULRffb3bCf6nw&businessId=216456918&ogV=-6" target="_blank">Yandex Market</a></li>
+                                    <li><a href="https://www.wildberries.ru/catalog/591193539/detail.aspx?targetUrl=GP" target="_blank">Wildberries</a></li>
+                                </ul>
+                            )}
                         </li>
-
-                        <a href="#ContactForm"><li>Contacts</li></a>
+                        <a href="#Contacts"><li>{t(`contact`)}</li></a>
                     </ul>
 
                     <div className="nav__panel__lang">
@@ -145,11 +153,12 @@ const Navbar = () => {
                         </label>
                         <select
                             id="select"
+                            onChange={(e) => i18n.changeLanguage(e.target.value)}
                             defaultValue="uz"
                         >
                             <option value="uz">🇺🇿 O'zbek</option>
-                            <option value="en">🇬🇧 English</option>
                             <option value="ru">🇷🇺 Русский</option>
+                            <option value="en">🇬🇧 English</option>
                         </select>
                     </div>
                 </div>

@@ -1,6 +1,10 @@
 import "../../assets/Contacts.css";
 import logo from "../../assets/images/logo.png"
+import {useTranslation} from "react-i18next";
 const Contacts = () => {
+
+    const { t } = useTranslation();
+
     return (
         <div id="Contacts">
             <div className="contact-wrapper">
@@ -20,7 +24,7 @@ const Contacts = () => {
                         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=otabekochilov@gmail.com&body=Assalomu%20alaykum" target="_blank" rel="noopener noreffer"><i className="fa-solid fa-envelope"></i></a>
                     </div>
 
-                    <span>Phone :  <a href="tel:+9982827747" rel="noopener noreferrer">+998 97 282 77 47</a></span>
+                    <span>{t(`contactNum`)} :  <a href="tel:+9982827747" rel="noopener noreferrer">+998 97 282 77 47</a></span>
                 </div>
 
                 <div className="map-container" data-aos="fade-up" data-aos-delay="400">
